@@ -13,9 +13,53 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-label>
+    <h1>Compose your playlist</h1>
+  </ion-label>
+  <br>
+
+  <ion-label>
+    <h2>Sort by</h2>
+  </ion-label>
+  <br>
+
+  <ion-grid>
+    <ion-row>
+      <ion-radio-group [allowEmptySelection]="true" value="sortBy" >
+        <ion-col size="12" size-sm="4" size-md="3">
+          <ion-radio labelPlacement="end" value="title">
+            <ion-label>title</ion-label>
+          </ion-radio>
+        </ion-col>
+
+        <ion-col size="12" size-sm="4" size-md="3">
+          <ion-radio labelPlacement="end" value="artist">
+            <ion-label>artist</ion-label>
+          </ion-radio>
+        </ion-col>
+
+        <ion-col size="12" size-sm="4" size-md="3">
+          <ion-radio labelPlacement="end" value="minDuration">
+            <ion-label>duration</ion-label>
+          </ion-radio>
+        </ion-col>
+      </ion-radio-group>
+    </ion-row>
+  </ion-grid>
+  <br>
+ 
+  <ion-label>
+    <h2>Songs</h2>
+  </ion-label>
+  <br>
+
   <ion-grid>
      @for (item of songs; track item.id) {
       <app-song [song]="item"></app-song>
      }
   </ion-grid>
+  <br>
+
+
+
 </ion-content>
