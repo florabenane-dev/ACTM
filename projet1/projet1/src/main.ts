@@ -4,9 +4,12 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { SongRepository } from './app/repository/song-repository';
+import { SongRepositoryImpl } from './app/repository/song-repository-impl';
 
 bootstrapApplication(AppComponent, {
   providers: [
+    { provide: SongRepository, useClass: SongRepositoryImpl},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
