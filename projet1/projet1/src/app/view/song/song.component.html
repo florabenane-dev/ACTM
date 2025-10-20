@@ -1,3 +1,11 @@
-<p>
-  song works!
-</p>
+<ion-row style="margin-bottom: 16px; align-items: center;">
+  <ion-col>
+    <ion-checkbox labelPlacement="end" [([(ngModel)]="onlySelectedSongs")]></ion-checkbox>
+  </ion-col>
+  <ion-col>
+    <ion-label>{{songs.title}}</ion-label>
+  </ion-col>
+  <ion-col size="auto">
+    <ion-label>{{songs.duration}}</ion-label>
+  </ion-col>
+</ion-row>
