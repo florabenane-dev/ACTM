@@ -1,6 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { IonCol, IonLabel, IonRow } from '@ionic/angular';
-import { IonCheckbox } from '@ionic/angular/standalone';
+import { FormsModule } from '@angular/forms';
+import { IonCheckbox, IonCol, IonLabel, IonRow  } from '@ionic/angular/standalone';
 import { Song } from 'src/app/data/song';
 
 @Component({
@@ -8,7 +9,7 @@ import { Song } from 'src/app/data/song';
   templateUrl: './song.component.html',
   styleUrls: ['./song.component.scss'],
   standalone: true,
-  imports: [IonRow, IonCol, IonLabel, IonCheckbox]
+  imports: [IonRow, IonCol, IonLabel, IonCheckbox, CommonModule, FormsModule]
 })
 export class SongComponent {
   onlySelectedSongs = false;

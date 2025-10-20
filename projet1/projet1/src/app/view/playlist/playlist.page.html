@@ -14,8 +14,8 @@
   </ion-header>
 
   <ion-grid>
-    <ion-row style="margin-bottom:16px;">
-     
-    </ion-row>
+     @for (item of songs; track item.id) {
+      <app-song [song]="item"></app-song>
+     }
   </ion-grid>
 </ion-content>
