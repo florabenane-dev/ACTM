@@ -5,4 +5,5 @@ export interface Song {
     album: string;
     duration: number; //duree donc equivalent time ?
     cover: string; //image
+    selected?: boolean;
 }

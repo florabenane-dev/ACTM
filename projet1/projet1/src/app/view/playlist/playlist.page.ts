@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonGrid, IonItem
 import { SongComponent } from '../song/song.component';
 import { SongRepository } from 'src/app/repository/song-repository';
 import { Song } from 'src/app/data/song';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -34,14 +35,20 @@ export class PlaylistPage {
     return this.songRepository.songs;
   }
 
-  constructor(private songRepository: SongRepository) {}
+  constructor(private songRepository: SongRepository, private router: Router) {}
 
-  onGo() {
-
+  get selectedSongs(): Song[] {
+    return this.songs.filter(song => song.selected);
   }
 
   mustSelectSong() {
-    
+    this.selectedSongs.length == 0;
   }
   
+  onGoToSummary() {
+    //this.router.navigate(['/summary'], {
+      //state: {songs: this.selectedSongs }
+   // });
+    console.log('[GO] ', this.selectedSongs);
+  }
 }

@@ -12,7 +12,6 @@ import { Song } from 'src/app/data/song';
   imports: [IonRow, IonCol, IonLabel, IonCheckbox, CommonModule, FormsModule]
 })
 export class SongComponent {
-  onlySelectedSongs = false;
 
   @Input() song!: Song;
 }
