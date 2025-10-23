@@ -1,8 +1,9 @@
-<ion-row style="margin-bottom: 16px; align-items: center;">
+<ion-row style="margin-bottom: 16px; align-items: center;" (click)="goToDetails(song.id)">
   <ion-col size="2" size-md="2">
     <ion-checkbox 
       labelPlacement="end" 
-      [(ngModel)]="song.selected"> 
+      [(ngModel)]="song.selected"
+      (click)="$event.stopPropagation()"> 
     </ion-checkbox>
   </ion-col>
 

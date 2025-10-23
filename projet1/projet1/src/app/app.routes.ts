@@ -1,10 +1,6 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  // },
   {
     path: '',
     redirectTo: 'playlist',
@@ -13,8 +9,9 @@ export const routes: Routes = [
   {
     path: 'playlist',
     loadComponent: () => import('./view/playlist/playlist.page').then( m => m.PlaylistPage)
-  },  {
-    path: 'song-details',
+  },
+  {
+    path: 'song-details/:id',
     loadComponent: () => import('./view/song-details/song-details.page').then( m => m.SongDetailsPage)
   },
   {
