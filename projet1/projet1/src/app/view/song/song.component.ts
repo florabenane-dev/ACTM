@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonCheckbox, IonCol, IonLabel, IonRow  } from '@ionic/angular/standalone';
 import { Song } from 'src/app/data/song';
+import { TimeUtils } from 'src/app/utils/time-utils';
 
 @Component({
   selector: 'app-song',
@@ -14,4 +15,8 @@ import { Song } from 'src/app/data/song';
 export class SongComponent {
 
   @Input() song!: Song;
+
+  formatTime(duration: number) {
+    return TimeUtils.formatDuration(duration);
+  }
 }

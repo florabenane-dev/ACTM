@@ -6,6 +6,7 @@ import { SongComponent } from '../song/song.component';
 import { SongRepository } from 'src/app/repository/song-repository';
 import { Song } from 'src/app/data/song';
 import { Router } from '@angular/router';
+import { TimeUtils } from 'src/app/utils/time-utils';
 
 @Component({
   selector: 'app-playlist',
@@ -41,8 +42,8 @@ export class PlaylistPage {
     return this.songs.filter(song => song.selected);
   }
 
-  mustSelectSong() {
-    this.selectedSongs.length == 0;
+  mustSelectSong(): boolean{
+    return this.selectedSongs.length == 0;
   }
   
   onGoToSummary() {
@@ -50,5 +51,10 @@ export class PlaylistPage {
       //state: {songs: this.selectedSongs }
    // });
     console.log('[GO] ', this.selectedSongs);
+  }
+
+  totalDuration(): string {
+    return TimeUtils.formatDuration(this.selectedSongs
+      .reduce((sum, song) => sum + song.duration, 0))
   }
 }
