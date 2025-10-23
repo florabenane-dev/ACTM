@@ -18,5 +18,8 @@ export class SongRepositoryImpl extends SongRepository{
     {id: 6 , title: "Master Blaster" , artist: "Stevie Wonder" , album: "" , duration: 4.49 , cover: "../../assets/album/1.jpeg"},
     {id: 7 , title: "So Sorry" , artist: "Feist" , album: "" , duration: 3.12 , cover: "../../assets/album/2.jpg"}
   ]
-  
+
+  public override getSong(id: number): Song | undefined {
+    return this.songs.find(song => song.id === id) as Song; 
+  }
 }
