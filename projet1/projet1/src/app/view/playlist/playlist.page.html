@@ -75,6 +75,16 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <br>
+  <ion-button 
+  shape="round"
+  expand="full"
+  (click)="onGo()" 
+  [disabled]="mustSelectSong()"
+  > Let's go
+  </ion-button>
   
 
 </ion-content>
+
