@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonBackButton, IonButtons, IonContent, IonGrid, IonHeader, IonItem, IonLabel, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonBackButton, IonButtons, IonContent, IonGrid, IonHeader, IonImg, IonItem, IonLabel, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Song } from 'src/app/data/song';
 import { SongRepository } from 'src/app/repository/song-repository';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-song-details',
@@ -23,7 +23,8 @@ import { ActivatedRoute } from '@angular/router';
     IonItem,
     IonLabel,  
     IonButtons,
-    IonBackButton
+    IonBackButton,
+    IonImg
   ]
 })
 export class SongDetailsPage implements OnInit {

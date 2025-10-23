@@ -1,15 +1,60 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>SongDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> 
+      @if(song) { 
+        {{song.title}}  
+      }
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <!-- <ion-title @if(song)>
-        {{ song.name }}
-      </ion-title> -->
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <br>
+    @if(song) {
+      <ion-row>
+        <ion-input label="Title" labelPlacement="stacked" fill="solid"
+          [(ngModel)]="song.title"
+          ngDefaultControl>
+        </ion-input>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-input label="Artist" labelPlacement="stacked" fill="solid"
+          [(ngModel)]="song.artist"
+          ngDefaultControl>
+          <div>Artist</div>
+        </ion-input>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-input label="Album" labelPlacement="stacked" fill="solid"
+        [(ngModel)]="song.album"
+        ngDefaultControl>
+        </ion-input>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-input label="Duration" labelPlacement="stacked" fill="solid"
+          [(ngModel)]="song.duration"
+          ngDefaultControl>
+        </ion-input>
+      </ion-row>
+      <br>
+      <br>
+
+      <ion-row labelPlacement="stacked">
+        <ion-img
+          src = "{{song.cover}}"
+          alt="Cover of {{song.title}}"
+        ></ion-img>
+      </ion-row>
+
+      <br>
+
+    }
+  </ion-grid>
 </ion-content>
