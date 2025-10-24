@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonBackButton, IonButton, IonContent, IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonImg, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { SongRepository } from 'src/app/repository/song-repository';
 import { Router } from '@angular/router';
 import { Song } from 'src/app/data/song';
@@ -24,7 +24,8 @@ import { Share } from '@capacitor/share';
     IonBackButton,
     IonImg,
     IonItem,
-    IonLabel
+    IonLabel,
+    IonButtons
   ]
 })
 export class PlaylistSummaryPage implements OnInit {
