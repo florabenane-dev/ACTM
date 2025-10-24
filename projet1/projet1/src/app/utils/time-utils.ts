@@ -3,6 +3,6 @@ export class TimeUtils {
         const minute = Math.floor(duration);
         const secondes = Math.round((duration - minute) * 60);
 
-        return `${minute}:${secondes.toString().padStart(2 , '0')}`
+        return `${minute}`
     }
 }
