@@ -39,16 +39,20 @@ export class PlaylistPage {
 
   constructor(
     private songRepository: SongRepository, 
-    private router: Router) {}
+    private router: Router
+  ) {}
 
+  //getter
   get selectedSongs(): Song[] {
     return this.songs.filter(song => song.selected);
   }
 
+  //
   mustSelectSong(): boolean{
     return this.selectedSongs.length == 0;
   }
   
+  //button send to music app
   onGoToSummary() {
     this.router.navigate(['/playlist-summary'], {
       state: {songs: this.selectedSongs}
@@ -59,5 +63,25 @@ export class PlaylistPage {
   totalDuration(): string {
     return TimeUtils.formatDuration(this.selectedSongs
       .reduce((sum, song) => sum + song.duration, 0))
+  }
+
+  //ajout des filtres
+  keywordFilter: 'title' | 'artist' | 'duration' | null = null;
+
+  onSortBy() {
+    if (!this.keywordFilter) return;
+
+    const sortedSongs = [...this.songs]; //copie
+
+    if (this.keywordFilter === 'duration') {
+      this.songs.sort((a, b) => a.duration - b.duration);
+
+    } else { //artist ou titre car alphabet
+      const key = this.keywordFilter as 'title' | 'artist';
+      this.songs.sort((a, b) => (a[key]).localeCompare((b[key]))
+      ); 
+    }
+
+    this.songRepository.songs = sortedSongs; //remplacer
   }
 }
