@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      playlist
+      Compose Your Playlist
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,14 +12,10 @@
       <ion-title size="large">playlist</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-label>
-    <h1>Compose your playlist</h1>
-  </ion-label>
   <br>
 
   <ion-label>
-    <h2>Sort by</h2>
+    <h1>Sort by</h1>
   </ion-label>
   <br>
 
@@ -49,7 +45,7 @@
   <br>
  
   <ion-label>
-    <h2>Songs</h2>
+    <h1>Songs</h1>
   </ion-label>
   <br>
 
@@ -70,7 +66,7 @@
 
       <ion-col size="16" size-lg="6">
         <ion-label>
-          <h1>{{ totalDuration() }} minutes</h1>
+          <h2>{{ totalDuration() }} minutes</h2>
         </ion-label>
       </ion-col>
     </ion-row>
@@ -84,7 +80,6 @@
   [disabled]="mustSelectSong()"
   > Let's go
   </ion-button>
-  
 
 </ion-content>
 

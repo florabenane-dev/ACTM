@@ -28,7 +28,8 @@ import { TimeUtils } from 'src/app/utils/time-utils';
     IonRadio, 
     IonCol, 
     IonButton, 
-    SongComponent]
+    SongComponent
+  ]
 })
 export class PlaylistPage {
 
@@ -36,7 +37,9 @@ export class PlaylistPage {
     return this.songRepository.songs;
   }
 
-  constructor(private songRepository: SongRepository, private router: Router) {}
+  constructor(
+    private songRepository: SongRepository, 
+    private router: Router) {}
 
   get selectedSongs(): Song[] {
     return this.songs.filter(song => song.selected);
@@ -47,9 +50,9 @@ export class PlaylistPage {
   }
   
   onGoToSummary() {
-    //this.router.navigate(['/summary'], {
-      //state: {songs: this.selectedSongs }
-   // });
+    this.router.navigate(['/playlist-summary'], {
+      state: {songs: this.selectedSongs}
+    });
     console.log('[GO] ', this.selectedSongs);
   }
 

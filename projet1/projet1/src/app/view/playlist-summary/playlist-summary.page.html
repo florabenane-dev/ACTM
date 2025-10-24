@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-button>
     <ion-title>PlaylistSummary</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">PlaylistSummary</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list lines="full" [inset]="true">
+    
+    @if (songs.length > 0) {
+      @for (song of songs; track song.id) {
+        <ion-item>
+          <ion-label>
+            <h2>{{ song.title }}</h2>
+          </ion-label>
+        </ion-item>
+      }
+    
+      <br>
+      <br>
+
+      <ion-button
+      shape="round"
+      expand="full"
+      (click)="onSharePlaylist()"
+      >Send to Music App</ion-button>
+
+    } @else {
+       <ion-item>
+        <ion-label>Aucune chanson sélectionnée 🎵</ion-label>
+      </ion-item>
+    }
+
+    
+    <ion-item>
+      <ion-img
+      src="../../../assets/icon/note.png"
+      alt="a music note"
+      style="width: 150px; margin: 4rem auto;"
+      ></ion-img>
+    </ion-item>
+  
+  </ion-list>
+  
 </ion-content>
