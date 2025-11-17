@@ -5,8 +5,15 @@ class RecipesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Recipes"),
+      ),
+      body: const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Text("Recipes Init")
+      ),
+    );
   }
 
 }
