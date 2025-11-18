@@ -1,7 +1,8 @@
-import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 
 class Recipe {
-  Image photo;
+  AssetImage photo;
   int prep_time;
   int cook_time;
   int serving;
