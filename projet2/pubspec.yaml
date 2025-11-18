@@ -87,3 +87,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  assets:
+    - assets/chocolate-cake.jpg
+    - assets/clafoutis.jpg
+    - simple-white-cake.png
