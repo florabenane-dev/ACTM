@@ -30,5 +30,5 @@ class Recipe {
     required this.ingredients,
     required this.directions
   });
-  // PS: ajout de required pour eviter null et les {} pour les parametres nommes = plus sécurisant et interdit l'invser les parametres
+  // PS: ajout de required pour eviter null et les {} sont pour les parametres nommes => plus sécurisant et interdit d'invser les parametres lors de l'implementation
 }

@@ -1,7 +1,7 @@
 /// Correspond aux ingredients des recettes
 class Ingredients {
   final String name;
-  final int quantity;
+  final double quantity;
   final String unit;
 
   Ingredients({
