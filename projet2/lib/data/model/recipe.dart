@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:projet2/data/model/ingredients.dart';
 
 /// Correspond à une interface pour les données des recettes
 class Recipe {
@@ -15,18 +16,19 @@ class Recipe {
   final int serving;
 
   /// La liste d'ingrédients avec leurs quantités
-  final String ingredients;
+  final List<Ingredients> ingredients;
 
   /// Les directives de la recette
   final String directions;
 
   /// Le constructeur
-  Recipe(
-      this.photo,
-      this.prepTime,
-      this.cookTime,
-      this.serving,
-      this.ingredients,
-      this.directions
-      );
+  Recipe({
+    required this.photo,
+    required this.prepTime,
+    required this.cookTime,
+    required this.serving,
+    required this.ingredients,
+    required this.directions
+  });
+  // PS: ajout de required pour eviter null et les {} pour les parametres nommes = plus sécurisant et interdit l'invser les parametres
 }
