@@ -1,11 +1,8 @@
-
-
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:projet2/data/model/recipe.dart';
 import 'package:projet2/data/repositories/RecipesRepository.dart';
 
+/// Implémentation du Repository qui va réaliser une liste un recette
 class RecipeRepositoryDummyImpl implements RecipeRepository{
   @override
   List<Recipe> recipes = [

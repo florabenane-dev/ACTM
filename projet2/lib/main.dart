@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:projet2/data/repositories/RecipeRepositoryDummyImpl.dart';
+import 'package:projet2/data/repositories/RecipesRepository.dart';
 import 'package:projet2/ui/Home/widgets/RecipesWidget.dart';
 
 void main() {
+ GetIt.instance.registerSingleton<RecipeRepository>(RecipeRepositoryDummyImpl());
   runApp(const MyApp());
 }
 
+/// Point d'entree de l'application
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
