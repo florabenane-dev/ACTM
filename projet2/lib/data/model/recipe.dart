@@ -3,6 +3,9 @@ import 'package:projet2/data/model/ingredients.dart';
 
 /// Correspond à une interface pour les données des recettes
 class Recipe {
+  /// Nom de la recette
+  final String name;
+
   /// Photo de la recette
   final AssetImage photo;
 
@@ -23,6 +26,7 @@ class Recipe {
 
   /// Le constructeur
   Recipe({
+    required this.name,
     required this.photo,
     required this.prepTime,
     required this.cookTime,

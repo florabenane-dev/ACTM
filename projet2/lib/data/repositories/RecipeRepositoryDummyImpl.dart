@@ -8,6 +8,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
   @override
   List<Recipe> recipes = [
     Recipe(
+        name: 'Chocolate Cake',
         photo: AssetImage('assets/chocolate-cake.jpg'),
         prepTime: 15,
         cookTime: 25,
@@ -24,6 +25,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
     ),
 
     Recipe(
+        name: 'Chocolate Cake',
         photo: AssetImage('assets/chocolate-cake.jpg'),
         prepTime: 15,
         cookTime: 25,
@@ -40,6 +42,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
     ),
 
     Recipe(
+        name: 'Simple Cake',
         photo: AssetImage('assets/simple-white-cake.png'),
         prepTime: 10,
         cookTime: 30,
@@ -56,6 +59,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
     ),
 
     Recipe(
+        name: 'Clafoutis',
         photo: AssetImage('assets/clafoutis.jpg'),
         prepTime: 15,
         cookTime: 25,
