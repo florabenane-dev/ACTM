@@ -38,13 +38,16 @@ class RecipeEditDetails extends StatelessWidget{
                     recipesPresenter.setPrepTime(recipe, int.parse(text));
                   } on FormatException {
                     //exception
+                    // TODO : Ajouter la gestion d'exception
                   }
                 },
+                  decoration: const InputDecoration(label: Text("Prep Time (mins)")),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: []
-          ),
+
+          //     Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: []
+          // ),
         ]),
     ),
     );
