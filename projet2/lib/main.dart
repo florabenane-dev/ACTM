@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
           foregroundColor: colorScheme.onPrimary
         )
       ),
-      home: const RecipeListWidget(),
       initialRoute: 'recipesList',
       routes: {
         '/recipesList': (context) => const RecipeListWidget(),
