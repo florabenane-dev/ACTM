@@ -29,6 +29,7 @@ class RecipesWidget extends StatelessWidget {
                 Text(
                     recipe.name,
                     style: const TextStyle(fontSize: 15)),
+
                 const SizedBox(height: 8),
                 Text(
                     "prep ${recipe.prepTime} mins",
@@ -39,6 +40,9 @@ class RecipesWidget extends StatelessWidget {
                     style: const TextStyle(fontSize: 12)),
               ],),
           ),],
+          // onPressed: () {
+          //   Navigator.pushNamed(context, '/recipeDetails', arguments: recipe);
+          // }
       ),
     );
   }
