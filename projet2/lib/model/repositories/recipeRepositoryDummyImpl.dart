@@ -5,8 +5,7 @@ import 'package:projet2/model/repositories/recipesRepository.dart';
 
 /// Implémentation du Repository qui va réaliser une liste un recette
 class RecipeRepositoryDummyImpl implements RecipeRepository{
-  @override
-  List<Recipe> recipes = [
+  final List<Recipe> _recipes = [
     Recipe(
         name: 'Chocolate Cake',
         photo: 'assets/chocolate-cake.jpg',
@@ -77,6 +76,8 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
     ),
 
   ];
-  
+
+  @override
+  List<Recipe> get recipes => _recipes;
   
  }

@@ -9,7 +9,15 @@ class RecipesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          '/recipeDetails',
+          arguments: recipe,
+        );
+      },
+      child: Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,10 +48,8 @@ class RecipesWidget extends StatelessWidget {
                     style: const TextStyle(fontSize: 12)),
               ],),
           ),],
-          // onPressed: () {
-          //   Navigator.pushNamed(context, '/recipeDetails', arguments: recipe);
-          // }
       ),
+    ),
     );
   }
 }

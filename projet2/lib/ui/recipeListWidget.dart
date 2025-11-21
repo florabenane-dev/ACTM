@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:projet2/model/repositories/recipesRepository.dart';
 import 'package:projet2/ui/recipesWidget.dart';
+import 'package:provider/provider.dart';
+
+import '../model/repositories/recipesListPresenter.dart';
 
 /// Affiche la liste des recettes avec un ListView
 class RecipeListWidget extends StatelessWidget {
@@ -9,8 +12,11 @@ class RecipeListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final recipeRepository = GetIt.instance<RecipeRepository>();
-    final recipes = recipeRepository.recipes;
+    // final recipeRepository = GetIt.instance<RecipeRepository>();
+    // final recipes = recipeRepository.recipes;
+
+    final recipesListPresenter = context.watch<RecipesListPresenter>();
+    final recipes = recipesListPresenter.recipes;
 
     return Scaffold(
       appBar: AppBar(

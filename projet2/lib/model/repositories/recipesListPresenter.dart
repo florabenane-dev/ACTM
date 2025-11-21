@@ -3,7 +3,7 @@ import 'package:projet2/model/data/ingredients.dart';
 import 'package:projet2/model/data/recipe.dart';
 
 abstract class RecipesListPresenter extends ChangeNotifier {
-  abstract List<Recipe> recipes;
+  List<Recipe> get recipes;
 
   ///ingredients
   void shiftQuantity(Recipe recipe, Ingredients ingredient, double shift);

@@ -1,13 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:projet2/model/data/ingredients.dart';
 import 'package:projet2/model/data/recipe.dart';
-import 'package:projet2/model/repositories/RecipesRepository.dart';
+import 'package:projet2/model/repositories/recipesRepository.dart';
 import 'package:projet2/model/repositories/recipesListPresenter.dart';
 
 class RecipesListPresenterImpl extends RecipesListPresenter {
 
+  final RecipeRepository repository;
+  RecipesListPresenterImpl({required this.repository});
+
   @override
-  List<Recipe> recipes = GetIt.instance<RecipeRepository>().recipes;
+  List<Recipe> get recipes => GetIt.instance<RecipeRepository>().recipes;
 
   @override
   void shiftCookTime(Recipe recipe, int shift) {

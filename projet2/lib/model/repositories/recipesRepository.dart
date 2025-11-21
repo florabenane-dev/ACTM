@@ -23,5 +23,5 @@ import 'package:projet2/model/data/recipe.dart';
 abstract class RecipeRepository {
 
   /// Recettes fixes
-  abstract List<Recipe> recipes;
+  List<Recipe> get recipes;
 }
