@@ -7,22 +7,22 @@ class Recipe {
   final String name;
 
   /// Photo de la recette
-  final String photo;
+  String photo;
 
   /// Le temps de préparation
-  final int prepTime;
+  int prepTime;
 
   /// Le temps de cuisson
-  final int cookTime;
+  int cookTime;
 
   /// Le nombre de personne à servir
-  final int serving;
+  int serving;
 
   /// La liste d'ingrédients avec leurs quantités
-  final List<Ingredients> ingredients;
+  List<Ingredients> ingredients;
 
   /// Les directives de la recette
-  final String directions;
+  String directions;
 
   /// Le constructeur
   Recipe({

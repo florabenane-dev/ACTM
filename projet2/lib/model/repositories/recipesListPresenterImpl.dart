@@ -1,0 +1,65 @@
+import 'package:get_it/get_it.dart';
+import 'package:projet2/model/data/ingredients.dart';
+import 'package:projet2/model/data/recipe.dart';
+import 'package:projet2/model/repositories/RecipesRepository.dart';
+import 'package:projet2/model/repositories/recipesListPresenter.dart';
+
+class RecipesListPresenterImpl extends RecipesListPresenter {
+
+  @override
+  List<Recipe> recipes = GetIt.instance<RecipeRepository>().recipes;
+
+  @override
+  void shiftCookTime(Recipe recipe, int shift) {
+    recipe.cookTime += shift;
+    if (recipe.cookTime< 0) recipe.cookTime = 0;
+    notifyListeners();
+  }
+
+  @override
+  void setCookTime(Recipe recipe, int quantity) {
+    recipe.cookTime = quantity;
+    notifyListeners();
+  }
+
+  @override
+  void shiftPrepTime(Recipe recipe, int shift) {
+    recipe.prepTime += shift;
+    if (recipe.prepTime< 0) recipe.prepTime = 0;
+    notifyListeners();
+  }
+
+  @override
+  void setPrepTime(Recipe recipe, int quantity) {
+    recipe.prepTime = quantity;
+    notifyListeners();
+  }
+
+  @override
+  void shiftServing(Recipe recipe, int shift) {
+    recipe.serving += shift;
+    if (recipe.serving< 0) recipe.serving = 0;
+    notifyListeners();
+  }
+
+  @override
+  void setServing(Recipe recipe, int quantity) {
+    recipe.serving = quantity;
+    notifyListeners();
+  }
+
+  @override
+  void setQuantity(Recipe recipe, Ingredients ingredient, double quantity) {
+    ingredient.quantity = quantity;
+    notifyListeners();
+  }
+
+  @override
+  void shiftQuantity(Recipe recipe, Ingredients ingredient, double shift) {
+    ingredient.quantity += shift;
+
+    //eviter les val negatives
+    if (ingredient.quantity < 0) ingredient.quantity = 0;
+    notifyListeners();
+  }
+}
