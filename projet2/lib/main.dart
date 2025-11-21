@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:projet2/model/repositories/RecipeRepositoryDummyImpl.dart';
-import 'package:projet2/model/repositories/RecipesRepository.dart';
-import 'package:projet2/ui/RecipeListWidget.dart';
+import 'package:projet2/model/repositories/recipeRepositoryDummyImpl.dart';
+import 'package:projet2/model/repositories/recipesRepository.dart';
+import 'package:projet2/ui/recipeDetails.dart';
+import 'package:projet2/ui/recipeEditDetails.dart';
+import 'package:projet2/ui/recipeListWidget.dart';
 
 void main() {
  GetIt.instance.registerSingleton<RecipeRepository>(RecipeRepositoryDummyImpl());
@@ -32,6 +34,12 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: const RecipeListWidget(),
+      initialRoute: 'recipesList',
+      routes: {
+        '/recipesList': (context) => const RecipeListWidget(),
+        // '/recipeDetails': (context) => const RecipeDetails(),
+        // '/recipeEdit': (context) => const RecipeEditDetails(),
+      },
     );
   }
 }

@@ -1,7 +1,7 @@
 
 import 'package:projet2/model/data/ingredients.dart';
 import 'package:projet2/model/data/recipe.dart';
-import 'package:projet2/model/repositories/RecipesRepository.dart';
+import 'package:projet2/model/repositories/recipesRepository.dart';
 
 /// Implémentation du Repository qui va réaliser une liste un recette
 class RecipeRepositoryDummyImpl implements RecipeRepository{

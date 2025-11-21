@@ -17,7 +17,7 @@ class RecipesWidget extends StatelessWidget {
           Image.asset(
             recipe.photo,
             width: 140,
-            height: 130,
+            height: 120,
             fit: BoxFit.cover,
           ),
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:projet2/model/repositories/RecipesRepository.dart';
-import 'package:projet2/ui/RecipesWidget.dart';
+import 'package:projet2/model/repositories/recipesRepository.dart';
+import 'package:projet2/ui/recipesWidget.dart';
 
 /// Affiche la liste des recettes avec un ListView
 class RecipeListWidget extends StatelessWidget {
