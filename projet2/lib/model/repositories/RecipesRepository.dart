@@ -1,4 +1,4 @@
-import 'package:projet2/data/model/recipe.dart';
+import 'package:projet2/model/data/recipe.dart';
 
 /// Classes :
 /// QUI / QUOI / ROLE

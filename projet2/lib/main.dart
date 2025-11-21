@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:projet2/data/repositories/RecipeRepositoryDummyImpl.dart';
-import 'package:projet2/data/repositories/RecipesRepository.dart';
-import 'package:projet2/ui/Home/widgets/RecipesWidget.dart';
+import 'package:projet2/model/repositories/RecipeRepositoryDummyImpl.dart';
+import 'package:projet2/model/repositories/RecipesRepository.dart';
+import 'package:projet2/ui/RecipeListWidget.dart';
 
 void main() {
  GetIt.instance.registerSingleton<RecipeRepository>(RecipeRepositoryDummyImpl());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           foregroundColor: colorScheme.onPrimary
         )
       ),
-      home: const RecipesWidget(),
+      home: const RecipeListWidget(),
     );
   }
 }

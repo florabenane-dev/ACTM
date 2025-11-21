@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:projet2/data/model/ingredients.dart';
+
+import 'package:projet2/model/data/ingredients.dart';
 
 /// Correspond à une interface pour les données des recettes
 class Recipe {
@@ -7,7 +7,7 @@ class Recipe {
   final String name;
 
   /// Photo de la recette
-  final AssetImage photo;
+  final String photo;
 
   /// Le temps de préparation
   final int prepTime;

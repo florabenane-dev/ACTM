@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:projet2/data/model/ingredients.dart';
-import 'package:projet2/data/model/recipe.dart';
-import 'package:projet2/data/repositories/RecipesRepository.dart';
+
+import 'package:projet2/model/data/ingredients.dart';
+import 'package:projet2/model/data/recipe.dart';
+import 'package:projet2/model/repositories/RecipesRepository.dart';
 
 /// Implémentation du Repository qui va réaliser une liste un recette
 class RecipeRepositoryDummyImpl implements RecipeRepository{
@@ -9,7 +9,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
   List<Recipe> recipes = [
     Recipe(
         name: 'Chocolate Cake',
-        photo: AssetImage('assets/chocolate-cake.jpg'),
+        photo: 'assets/chocolate-cake.jpg',
         prepTime: 15,
         cookTime: 25,
         serving: 8,
@@ -26,7 +26,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
 
     Recipe(
         name: 'Chocolate Cake',
-        photo: AssetImage('assets/chocolate-cake.jpg'),
+        photo: 'assets/chocolate-cake.jpg',
         prepTime: 15,
         cookTime: 25,
         serving: 8,
@@ -43,7 +43,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
 
     Recipe(
         name: 'Simple Cake',
-        photo: AssetImage('assets/simple-white-cake.png'),
+        photo: 'assets/simple-white-cake.png',
         prepTime: 10,
         cookTime: 30,
         serving: 12,
@@ -60,7 +60,7 @@ class RecipeRepositoryDummyImpl implements RecipeRepository{
 
     Recipe(
         name: 'Clafoutis',
-        photo: AssetImage('assets/clafoutis.jpg'),
+        photo: 'assets/clafoutis.jpg',
         prepTime: 15,
         cookTime: 25,
         serving: 8,
