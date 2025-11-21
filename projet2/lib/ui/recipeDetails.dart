@@ -8,11 +8,21 @@ class RecipeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// passer les arguments de route
     final recipe = ModalRoute.of(context)!.settings.arguments as Recipe;
+
+    /// s'occupera de la mise à jour
     final presenter = context.watch<RecipesListPresenter>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(recipe.name)),
+      appBar: AppBar(
+        toolbarHeight: 80,
+        title: Text(
+          recipe.name,
+          style: TextStyle(fontSize: 27),
+        ),
+      ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -26,8 +36,14 @@ class RecipeDetails extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Prep: ${recipe.prepTime} mins", style: const TextStyle(fontSize: 16)),
-                    Text("Cook: ${recipe.cookTime} mins", style: const TextStyle(fontSize: 16)),
+                    Text(
+                        "Prep: ${recipe.prepTime} mins",
+                        style: const TextStyle(fontSize: 16)
+                    ),
+                    Text(
+                        "Cook: ${recipe.cookTime} mins",
+                        style: const TextStyle(fontSize: 16)
+                    ),
                   ],
                 ),
                 ElevatedButton(
@@ -38,18 +54,27 @@ class RecipeDetails extends StatelessWidget {
                       arguments: recipe,
                     );
                   },
-                  child: const Text("Edit Recipe"),
+                  child: const Text(
+                    "Edit Recipe",
+                    style: TextStyle(fontSize: 17),
+                  ),
+
                 )
               ],
             ),
-
             const SizedBox(height: 16),
 
             // Serving
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text("Serving:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                const Text(
+                    "Serving:",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                    )
+                ),
                 Row(
                   children: [
                     //plus beau que elevatedbutton
@@ -57,7 +82,10 @@ class RecipeDetails extends StatelessWidget {
                       icon: const Icon(Icons.remove_circle_outline),
                       onPressed: () => presenter.shiftServing(recipe, -1),
                     ),
-                    Text("${recipe.serving}", style: const TextStyle(fontSize: 16)),
+                    Text(
+                        "${recipe.serving}",
+                        style: const TextStyle(fontSize: 16)
+                    ),
                     IconButton(
                       icon: const Icon(Icons.add_circle_outline),
                       onPressed: () => presenter.shiftServing(recipe, 1),
@@ -66,7 +94,6 @@ class RecipeDetails extends StatelessWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 16),
 
             // Image
@@ -88,28 +115,39 @@ class RecipeDetails extends StatelessWidget {
                     onPressed: () {
                       // TODO : ouvrir galerie / caméra
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("caméra à faire")),
+                        const SnackBar(content: Text("caméra et galerie à faire")),
                       );
                     },
                   ),
                 ),
               ],
             ),
-
             const SizedBox(height: 24),
 
             // Ingredients
-            const Text("Ingredients", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text(
+                "Ingredients",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                )
+            ),
             const SizedBox(height: 8),
-            ...recipe.ingredients.map((ingredient) => Text(
-              "- ${ingredient.name} ${ingredient.quantity} ${ingredient.unit}",
-              style: const TextStyle(fontSize: 14),
+            ...recipe.ingredients
+              .map((ingredient) => Text(
+                "- ${ingredient.name} ${ingredient.quantity} ${ingredient.unit}",
+                style: const TextStyle(fontSize: 14),
             )),
-
             const SizedBox(height: 24),
 
             // Directions
-            const Text("Directions", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text(
+                "Directions",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                )
+            ),
             const SizedBox(height: 8),
             Text(recipe.directions, style: const TextStyle(fontSize: 14)),
           ],
