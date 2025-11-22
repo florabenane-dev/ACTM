@@ -55,8 +55,8 @@ class RecipeDetails extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/recipeEdit',
-                      arguments: recipe,
+                      '/recipeEditDetails',
+                      arguments: recipe
                     );
                   },
                   child: const Text(

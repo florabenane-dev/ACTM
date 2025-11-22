@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/recipesList': (context) => const RecipeListWidget(),
         '/recipeDetails': (context) => const RecipeDetails(),
-        '/recipeEdit': (context) => const RecipeEditDetails(),
+        '/recipeEditDetails': (context) => const RecipeEditDetails(),
       },
     );
   }

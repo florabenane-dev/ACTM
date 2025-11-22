@@ -32,10 +32,11 @@ class RecipeEditDetails extends StatelessWidget{
         ),
       ),
 
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: SingleChildScrollView (
+          padding: const EdgeInsets.all(18),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextFormField(
                 initialValue: "${recipe.prepTime}",
@@ -47,7 +48,18 @@ class RecipeEditDetails extends StatelessWidget{
                     // TODO : Ajouter la gestion d'exception
                   }
                 },
-                  decoration: const InputDecoration(label: Text("Prep Time (mins)")),
+                  decoration: const InputDecoration(
+                    label: Text("Prep Time (mins)"),
+                    border: OutlineInputBorder(),
+                    hintText: "Enter a preparation Time",
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.indigo,
+                        width: 2.0,
+                      ),
+                    ),
+                  ),
               ),
 
           //     Column(
