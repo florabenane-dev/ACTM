@@ -154,6 +154,9 @@ class RecipeEditDetails extends StatelessWidget{
                 Checkbox(value: sortedByName,
                   onChanged: (bool? value) {
                     // TODO: Implementer le tri par nom
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("tri par nom à faire")),
+                    );
                     sortedByName = value!;
                   },
                 ),
@@ -209,10 +212,14 @@ class RecipeEditDetails extends StatelessWidget{
                         ),
                       ),
                       const SizedBox(width: 10),
+
                       // bouton Delete
                       FilledButton(
                         onPressed: () {
                           // TODO: Implementer Delete ingredient
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("delete ingredient à faire")),
+                          );
                         },
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.red[900],
@@ -236,6 +243,9 @@ class RecipeEditDetails extends StatelessWidget{
               child: ElevatedButton(
                 onPressed: () {
                   // TODO: Implementer Add ingredient
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("add ingredient à faire")),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,

@@ -45,6 +45,7 @@ class RecipeDetails extends StatelessWidget {
                         "Prep: ${recipe.prepTime} mins",
                         style: const TextStyle(fontSize: 16)
                     ),
+                    SizedBox(height: 10),
                     Text(
                         "Cook: ${recipe.cookTime} mins",
                         style: const TextStyle(fontSize: 16)
@@ -59,9 +60,16 @@ class RecipeDetails extends StatelessWidget {
                       arguments: recipe
                     );
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.indigo,
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                  ),
                   child: const Text(
                     "Edit Recipe",
-                    style: TextStyle(fontSize: 17),
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
                   ),
                 )
               ],
@@ -70,7 +78,7 @@ class RecipeDetails extends StatelessWidget {
 
             // Serving
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Text(
                     "Serving:",
@@ -114,14 +122,26 @@ class RecipeDetails extends StatelessWidget {
                 Positioned(
                   bottom: 8,
                   right: 8,
-                  child: IconButton(
-                    icon: const Icon(Icons.image, color: Colors.white),
+                  child: FilledButton(
                     onPressed: () {
                       // TODO : ouvrir galerie / caméra
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("caméra et galerie à faire")),
                       );
                     },
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.indigo,
+                      minimumSize: const Size(40, 40),
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      )
+                    ),
+                    child: const Icon(
+                      Icons.image_outlined,
+                      size: 25,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
