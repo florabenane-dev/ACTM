@@ -3,6 +3,8 @@ import 'package:projet2/model/data/recipe.dart';
 import 'package:projet2/model/repositories/recipesListPresenter.dart';
 import 'package:provider/provider.dart';
 
+import '../utils/utilsFunctions.dart';
+
 class RecipeDetails extends StatelessWidget {
   const RecipeDetails({super.key});
 
@@ -159,7 +161,7 @@ class RecipeDetails extends StatelessWidget {
             const SizedBox(height: 8),
             ...recipe.ingredients
               .map((ingredient) => Text(
-                "- ${ingredient.name} ${ingredient.quantity} ${ingredient.unit}",
+                "- ${ingredient.name} ${UtilsFunctions.formatNumber(ingredient.quantity)} ${ingredient.unit}",
                 style: const TextStyle(fontSize: 14),
             )),
             const SizedBox(height: 24),

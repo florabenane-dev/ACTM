@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../model/data/recipe.dart';
 import '../model/repositories/recipesListPresenter.dart';
+import '../utils/utilsFunctions.dart';
 
 class RecipeEditDetails extends StatelessWidget{
 
@@ -178,9 +179,7 @@ class RecipeEditDetails extends StatelessWidget{
                         child: SizedBox(
                           height: 50.0,
                           child: TextFormField(
-                            initialValue: ingredient.quantity % 1 == 0
-                              ? ingredient.quantity.toInt().toString()
-                              : ingredient.quantity.toString(),
+                            initialValue: UtilsFunctions.formatNumber(ingredient.quantity),
                             keyboardType: TextInputType.numberWithOptions(decimal: true),
                             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                             onChanged: (quantityUser) {

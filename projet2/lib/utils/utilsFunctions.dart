@@ -1,7 +1,7 @@
 class UtilsFunctions {
 
   /// Retourne un nombre sans le .0 si son décimal est vide
-  String formatNumber(double number) {
+  static String formatNumber(double number) {
     String str;
 
     /// supprimer le .0 si le nombre est entier
