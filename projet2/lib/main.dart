@@ -4,9 +4,9 @@ import 'package:projet2/model/repositories/recipeRepositoryDummyImpl.dart';
 import 'package:projet2/model/repositories/recipesListPresenter.dart';
 import 'package:projet2/model/repositories/recipesListPresenterImpl.dart';
 import 'package:projet2/model/repositories/recipesRepository.dart';
-import 'package:projet2/ui/recipeDetails.dart';
-import 'package:projet2/ui/recipeEditDetails.dart';
-import 'package:projet2/ui/recipeListWidget.dart';
+import 'package:projet2/widgets/recipeDetails.dart';
+import 'package:projet2/widgets/recipeEditDetails.dart';
+import 'package:projet2/widgets/recipeListWidget.dart';
 import 'package:provider/provider.dart';
 
 void main() {

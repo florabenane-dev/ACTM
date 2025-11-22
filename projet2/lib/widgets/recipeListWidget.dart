@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:projet2/model/repositories/recipesRepository.dart';
-import 'package:projet2/ui/recipesWidget.dart';
+import 'package:projet2/widgets/recipesWidget.dart';
 import 'package:provider/provider.dart';
 
 import '../model/repositories/recipesListPresenter.dart';
