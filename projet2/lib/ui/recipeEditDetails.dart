@@ -6,6 +6,12 @@ import '../model/repositories/recipesListPresenter.dart';
 
 class RecipeEditDetails extends StatelessWidget{
 
+  // TODO: Ajouter les autres Champs de text !
+  // TODO: Ajouter le bouton Add new Ingredient !
+  // TODO: Ajouter les boutons de suppression !
+  // TODO: Ajouter la checkbox et Implementer la logique de tri !
+  // TODO: Implémenter la logique CRUD pour les ingrédients = Ajout,edit,supp
+
   ///constructeur
   const RecipeEditDetails({super.key});
 

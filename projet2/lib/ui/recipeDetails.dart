@@ -6,6 +6,11 @@ import 'package:provider/provider.dart';
 class RecipeDetails extends StatelessWidget {
   const RecipeDetails({super.key});
 
+  // TODO: Ajouter l'importation depuis la Galerie ! (urgent)
+  // TODO: Faire la caméra ? (optionnel)
+  // TODO: Améliorer le Style ?
+  // TODO: Ajouter des anilations ?
+
   @override
   Widget build(BuildContext context) {
     /// passer les arguments de route
