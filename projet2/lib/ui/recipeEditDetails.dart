@@ -48,9 +48,9 @@ class RecipeEditDetails extends StatelessWidget{
                 initialValue: "${recipe.prepTime}",
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                onChanged: (text) {
+                onChanged: (prepTimeUser) {
                   try {
-                    recipesPresenter.setPrepTime(recipe, int.parse(text));
+                    recipesPresenter.setPrepTime(recipe, int.parse(prepTimeUser));
                   } on FormatException {
                     //exception
                     // TODO : Ajouter la gestion d'exception
@@ -81,9 +81,9 @@ class RecipeEditDetails extends StatelessWidget{
                 initialValue: "${recipe.cookTime}",
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                onChanged: (text) {
+                onChanged: (cookTimeUser) {
                   try {
-                    recipesPresenter.setCookTime(recipe, int.parse(text));
+                    recipesPresenter.setCookTime(recipe, int.parse(cookTimeUser));
                   } on FormatException {
                     //exception
                     // TODO : Ajouter la gestion d'exception
@@ -114,9 +114,9 @@ class RecipeEditDetails extends StatelessWidget{
                 initialValue: "${recipe.serving}",
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                onChanged: (text) {
+                onChanged: (servingUser) {
                   try {
-                    recipesPresenter.setServing(recipe, int.parse(text));
+                    recipesPresenter.setServing(recipe, int.parse(servingUser));
                   } on FormatException {
                     //exception
                     // TODO : Ajouter la gestion d'exception
@@ -153,6 +153,7 @@ class RecipeEditDetails extends StatelessWidget{
                 // case à cocher
                 Checkbox(value: sortedByName,
                   onChanged: (bool? value) {
+                    // TODO: Implementer le tri par nom
                     sortedByName = value!;
                   },
                 ),
@@ -174,12 +175,14 @@ class RecipeEditDetails extends StatelessWidget{
                         child: SizedBox(
                           height: 50.0,
                           child: TextFormField(
-                            initialValue: "${ingredient.quantity}",
-                            keyboardType: TextInputType.number,
+                            initialValue: ingredient.quantity % 1 == 0
+                              ? ingredient.quantity.toInt().toString()
+                              : ingredient.quantity.toString(),
+                            keyboardType: TextInputType.numberWithOptions(decimal: true),
                             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                            onChanged: (text) {
+                            onChanged: (quantityUser) {
                               try {
-                                recipesPresenter.setServing(recipe, int.parse(text));
+                                recipesPresenter.setQuantity(recipe, ingredient, double.parse(quantityUser));
                               } on FormatException {
                                 // TODO gestion erreur
                               }
@@ -206,9 +209,11 @@ class RecipeEditDetails extends StatelessWidget{
                         ),
                       ),
                       const SizedBox(width: 10),
-
+                      // bouton Delete
                       FilledButton(
-                        onPressed: () { },
+                        onPressed: () {
+                          // TODO: Implementer Delete ingredient
+                        },
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.red[900],
                           minimumSize: const Size(45, 45),
@@ -230,7 +235,7 @@ class RecipeEditDetails extends StatelessWidget{
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: Ajouter un ingredient
+                  // TODO: Implementer Add ingredient
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
