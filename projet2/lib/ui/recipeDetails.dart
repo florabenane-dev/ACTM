@@ -63,7 +63,6 @@ class RecipeDetails extends StatelessWidget {
                     "Edit Recipe",
                     style: TextStyle(fontSize: 17),
                   ),
-
                 )
               ],
             ),
