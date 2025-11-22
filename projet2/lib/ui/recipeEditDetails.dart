@@ -140,28 +140,99 @@ class RecipeEditDetails extends StatelessWidget{
               ),
               const SizedBox(height: 20),
 
-              // ingredients
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // ingredients
                   Text(
                     "Ingredients",
-                    style: TextStyle(fontSize: 16.0),
+                    style: TextStyle(fontSize: 16),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 30),
+
+                  // case à cocher
                   Checkbox(value: sortedByName,
-                      onChanged: (bool? value) {
+                    onChanged: (bool? value) {
+                      sortedByName = value!;
+                    },
+                  ),
+                  const Expanded(child: Text(
+                      "Sort By Name",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],),
 
-                      }
-                  )
-                ],
-              )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: recipe.ingredients.map((ingredient) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 50.0,
+                            child: TextFormField(
+                              initialValue: "${ingredient.quantity}",
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              onChanged: (text) {
+                                try {
+                                  recipesPresenter.setServing(recipe, int.parse(text));
+                                } on FormatException {
+                                  // TODO gestion erreur
+                                }
+                              },
+                              decoration: InputDecoration(
+                                label: Text("${ingredient.name} ${ingredient.unit}"),
+                                labelStyle: const TextStyle(fontSize: 14),
+                                border: const OutlineInputBorder(),
+                                hintText: "Enter ${ingredient.name}'s quantity",
+                                hintStyle: const TextStyle(fontSize: 15),
+                                filled: true,
+                                focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.indigo,
+                                    width: 2.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+
+                        FilledButton(
+                          onPressed: () { },
+                          style: FilledButton.styleFrom(
+                            backgroundColor: Colors.red[900],
+                            minimumSize: const Size(50, 50),
+                            padding: EdgeInsets.zero,
+                          ),
+                          child: const Icon(
+                            Icons.delete_outlined,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
+
+              // les ingredients
+
+              const SizedBox(height: 20),
 
 
-          //     Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: []
-          // ),
+
+
+                //     Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: []
+                // ),
         ]),
     ),
     );
