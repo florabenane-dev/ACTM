@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:projet2/model/data/recipe.dart';
 import 'package:projet2/model/repositories/recipesListPresenter.dart';
@@ -5,13 +7,20 @@ import 'package:provider/provider.dart';
 
 import '../utils/utilsFunctions.dart';
 
-class RecipeDetails extends StatelessWidget {
+class RecipeDetails extends StatefulWidget {
   const RecipeDetails({super.key});
 
-  // TODO: Ajouter l'importation depuis la Galerie ! (urgent)
-  // TODO: Faire la caméra ? (optionnel)
-  // TODO: Améliorer le Style ?
-  // TODO: Ajouter des animations ?
+  @override
+  State<StatefulWidget> createState() => _RecipeDetailsState();
+
+// TODO: Ajouter l'importation depuis la Galerie ! (urgent)
+// TODO: Faire la caméra ? (optionnel)
+// TODO: Améliorer le Style ?
+// TODO: Ajouter des animations ?
+}
+
+class _RecipeDetailsState extends State<RecipeDetails> {
+  File? galleryFile;
 
   @override
   Widget build(BuildContext context) {
@@ -114,22 +123,36 @@ class RecipeDetails extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  child: Image.asset(
-                    recipe.photo,
-                    width: double.infinity,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
+                  child: recipe.photo.startsWith("assets/")
+                    ? Image.asset(
+                      recipe.photo,
+                      width: double.infinity,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    )
+                    : Image.file(
+                      File(recipe.photo),
+                      width: double.infinity,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
                 ),
                 Positioned(
                   bottom: 8,
                   right: 8,
                   child: FilledButton(
-                    onPressed: () {
-                      // TODO : ouvrir galerie / caméra
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("caméra et galerie à faire")),
-                      );
+                    onPressed: () async {
+                      File? image = await UtilsFunctions.chooseImageSource(context: context);
+                      if (!mounted) return;
+                      if (image != null) {
+                        setState(() {
+                          galleryFile = image;
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Image sélectionnée !")),
+                        );
+                        // TODO: mettre à jour l'image de la recette
+                      }
                     },
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.indigo,

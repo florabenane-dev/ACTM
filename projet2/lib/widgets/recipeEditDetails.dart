@@ -9,8 +9,6 @@ import '../utils/utilsFunctions.dart';
 
 class RecipeEditDetails extends StatefulWidget {
 
-  // TODO: Ajouter la checkbox et Implementer la logique de tri !
-
   ///constructeur
   const RecipeEditDetails({super.key});
 
@@ -95,7 +93,6 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                   try {
                     recipesPresenter.setCookTime(recipe, int.parse(cookTimeUser));
                   } on FormatException {
-                    //exception
                     // TODO : Ajouter la gestion d'exception
                   }
                 },
@@ -274,12 +271,14 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                         ),
                         TextButton(
                           onPressed: () {
+                            ///ajouter l'ingredient
                             recipesPresenter.addIngredient(
                               recipe,
                               name: newName,
                               unit: newUnit,
                               quantity: newQuantity,
                             );
+                            Navigator.pop(context); ///fermer le dialog
                           },
                           style: TextButton.styleFrom(
                             backgroundColor: Colors.indigo,
@@ -349,10 +348,13 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                                   ),
                                 ),
                                 keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                inputFormatters: [ //pour permettre la virgule.exp: 5,5 ou 5.5 car sinon le 5,5 devient un 0
+                                inputFormatters: [ //pour permettre la virgule.exp: 5,5 ou 5.5
                                   FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
                                 ],
-                                onChanged: (value) => newQuantity = double.tryParse(value) ?? 0,
+                                onChanged: (value) {
+                                  String normalized = value.replaceAll(',', '.'); //car sinon le 5,5 devient un 0
+                                  newQuantity = double.tryParse(normalized) ?? 0;
+                                },
                               ),
                             ],
                           ),

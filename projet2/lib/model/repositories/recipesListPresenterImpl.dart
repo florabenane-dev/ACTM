@@ -70,6 +70,7 @@ class RecipesListPresenterImpl extends RecipesListPresenter {
   void addIngredient(Recipe recipe, {required String name, String unit = "", double quantity = 0}) {
     if (name.isEmpty) return;
     final ingredient = Ingredients(name: name, unit: unit, quantity: quantity);
+    recipe.ingredients.add(ingredient);
     notifyListeners();
   }
 
