@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:projet2/model/data/recipe.dart';
 import 'package:projet2/model/repositories/recipesListPresenter.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +16,6 @@ class RecipeDetails extends StatefulWidget {
 
 // TODO: Ajouter l'importation depuis la Galerie ! (urgent)
 // TODO: Faire la caméra ? (optionnel)
-// TODO: Améliorer le Style ?
-// TODO: Ajouter des animations ?
 }
 
 class _RecipeDetailsState extends State<RecipeDetails> {
@@ -141,26 +140,14 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                   bottom: 8,
                   right: 8,
                   child: FilledButton(
-                    onPressed: () async {
-                      File? image = await UtilsFunctions.chooseImageSource(context: context);
-                      if (!mounted) return;
-                      if (image != null) {
-                        setState(() {
-                          galleryFile = image;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Image sélectionnée !")),
-                        );
-                        // TODO: mettre à jour l'image de la recette
-                      }
-                    },
+                    onPressed: () => _pickImage(recipe),
                     style: FilledButton.styleFrom(
-                      backgroundColor: Colors.indigo,
-                      minimumSize: const Size(40, 40),
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      )
+                    backgroundColor: Colors.indigo,
+                    minimumSize: const Size(40, 40),
+                    padding: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    )
                     ),
                     child: const Icon(
                       Icons.image_outlined,
@@ -204,4 +191,68 @@ class _RecipeDetailsState extends State<RecipeDetails> {
       ),
     );
   }
+
+  void _pickImage(Recipe recipe) async {
+    final ImagePicker picker = ImagePicker();
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Galerie'),
+                onTap: () async {
+                  Navigator.of(context).pop();
+                  await _selectImage(ImageSource.gallery, recipe);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text('Caméra'),
+                onTap: () async {
+                  Navigator.of(context).pop();
+                  await _selectImage(ImageSource.camera, recipe);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _selectImage(ImageSource source, Recipe recipe) async {
+    final ImagePicker picker = ImagePicker();
+
+    try {
+      final XFile? pickedFile = await picker.pickImage(
+        source: source,
+        maxWidth: 1800,
+        maxHeight: 1800,
+        imageQuality: 90,
+      );
+
+      if (pickedFile != null && mounted) {
+        setState(() {
+          galleryFile = File(pickedFile.path);
+          recipe.photo = pickedFile.path;
+        });
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Image sélectionnée !")),
+        );
+      }
+    } catch (e) {
+      print("Erreur: $e");
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Erreur: ${e.toString()}")),
+        );
+      }
+    }
+  }
+
 }
