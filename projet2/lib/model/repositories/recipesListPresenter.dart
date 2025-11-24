@@ -22,7 +22,7 @@ abstract class RecipesListPresenter extends ChangeNotifier {
   void setServing(Recipe recipe, int quantity);
 
   ///ajouter un ingredients
-  void addIngredient(Recipe recipe, Ingredients ingredient);
+  void addIngredient(Recipe recipe, {required String name, String unit = "", double quantity = 0});
 
   ///supprimer un ingredients
   void removeIngredient(Recipe recipe, Ingredients ingredient);

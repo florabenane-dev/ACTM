@@ -67,8 +67,9 @@ class RecipesListPresenterImpl extends RecipesListPresenter {
   }
 
   @override
-  void addIngredient(Recipe recipe, Ingredients ingredient) {
-    recipe.ingredients.add(ingredient);
+  void addIngredient(Recipe recipe, {required String name, String unit = "", double quantity = 0}) {
+    if (name.isEmpty) return;
+    final ingredient = Ingredients(name: name, unit: unit, quantity: quantity);
     notifyListeners();
   }
 

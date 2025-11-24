@@ -247,12 +247,108 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
             // bouton Add Ingredient
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    recipesPresenter.addIngredient(recipe,
-                      Ingredients(name: "New ingredients", quantity: 0, unit: "")
-                    );
-                  });
+                onPressed: () async {
+                  String newName = "";
+                  String newUnit = "";
+                  double newQuantity = 0;
+
+                  // ouverture du dialog pour saisir le nouvel ingrédient
+                  await showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text(
+                        "Add Ingredient",
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.indigo,
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text("Cancel"),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            recipesPresenter.addIngredient(
+                              recipe,
+                              name: newName,
+                              unit: newUnit,
+                              quantity: newQuantity,
+                            );
+                          },
+                          child: Text("Add"),
+                        ),
+                      ],
+                      content: SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              //nom
+                              TextField(
+                                decoration: const InputDecoration(
+                                  label: Text("Name"),
+                                  labelStyle: TextStyle(fontSize: 14),
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter ingredient's name",
+                                  hintStyle: TextStyle(fontSize: 13),
+                                  filled: true,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.indigo,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                ),
+                                onChanged: (value) => newName = value,
+                              ),
+                              const SizedBox(height: 20),
+                              //unit
+                              TextField(
+                                decoration: const InputDecoration(
+                                  label: Text("Unit"),
+                                  labelStyle: TextStyle(fontSize: 14),
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter ingredient's unit",
+                                  hintStyle: TextStyle(fontSize: 15),
+                                  filled: true,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.indigo,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                ),
+                                onChanged: (value) => newUnit = value,
+                              ),
+                              const SizedBox(height: 20),
+                              //quantity
+                              TextField(
+                                decoration: const InputDecoration(
+                                  label: Text("Quantity"),
+                                  labelStyle: TextStyle(fontSize: 14),
+                                  border: OutlineInputBorder(),
+                                  hintText: "Enter ingredient's quantity",
+                                  hintStyle: TextStyle(fontSize: 15),
+                                  filled: true,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.indigo,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                ),
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                onChanged: (value) => newQuantity = double.tryParse(value) ?? 0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
