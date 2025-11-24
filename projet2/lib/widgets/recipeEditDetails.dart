@@ -266,7 +266,11 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text("Cancel"),
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.indigo,
+                            foregroundColor: Colors.white,
+                          ),
+                          child: const Text("Cancel"),
                         ),
                         TextButton(
                           onPressed: () {
@@ -277,10 +281,14 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                               quantity: newQuantity,
                             );
                           },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.indigo,
+                            foregroundColor: Colors.white,
+                          ),
                           child: Text("Add"),
                         ),
                       ],
-                      content: SingleChildScrollView(
+                      content: SingleChildScrollView( //permettre le scroll
                         child: Padding(
                           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
                           child: Column(
@@ -341,6 +349,9 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                                   ),
                                 ),
                                 keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [ //pour permettre la virgule.exp: 5,5 ou 5.5 car sinon le 5,5 devient un 0
+                                  FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
+                                ],
                                 onChanged: (value) => newQuantity = double.tryParse(value) ?? 0,
                               ),
                             ],
