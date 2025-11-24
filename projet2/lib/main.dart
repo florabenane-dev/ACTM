@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/recipeDetails': (context) => const RecipeDetails(),
         '/recipeEditDetails': (context) => const RecipeEditDetails(),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }

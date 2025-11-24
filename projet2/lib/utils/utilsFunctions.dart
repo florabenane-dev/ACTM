@@ -20,4 +20,4 @@ class UtilsFunctions {
 
     return str.replaceAll('.', ',');
   }
-
+}
