@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projet2/model/data/ingredients.dart';
 import 'package:provider/provider.dart';
 
 import '../model/data/recipe.dart';
@@ -220,10 +221,9 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                       // bouton Delete
                       FilledButton(
                         onPressed: () {
-                          // TODO: Implementer Delete ingredient
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("delete ingredient à faire")),
-                          );
+                          setState(() {
+                            recipesPresenter.removeIngredient(recipe, ingredient);
+                          });
                         },
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.red[900],
@@ -246,10 +246,11 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: Implementer Add ingredient
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("add ingredient à faire")),
-                  );
+                  setState(() {
+                    recipesPresenter.addIngredient(recipe,
+                      Ingredients(name: "New ingredients", quantity: 0, unit: "")
+                    );
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
