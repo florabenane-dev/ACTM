@@ -6,16 +6,20 @@ import '../model/data/recipe.dart';
 import '../model/repositories/recipesListPresenter.dart';
 import '../utils/utilsFunctions.dart';
 
-class RecipeEditDetails extends StatelessWidget{
+class RecipeEditDetails extends StatefulWidget {
 
-  // TODO: Ajouter les autres Champs de text !
-  // TODO: Ajouter le bouton Add new Ingredient !
-  // TODO: Ajouter les boutons de suppression !
   // TODO: Ajouter la checkbox et Implementer la logique de tri !
   // TODO: Implémenter la logique CRUD pour les ingrédients = Ajout,edit,supp
 
   ///constructeur
   const RecipeEditDetails({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _RecipeEditDetailsState();
+
+}
+
+class _RecipeEditDetailsState extends State<RecipeEditDetails> {
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +145,7 @@ class RecipeEditDetails extends StatelessWidget{
             ),
             const SizedBox(height: 20),
 
-            // ingredients
+            // Text + case à cocher
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -168,6 +172,7 @@ class RecipeEditDetails extends StatelessWidget{
                 ),
               ],),
 
+            // ingredients
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: recipe.ingredients.map((ingredient) {

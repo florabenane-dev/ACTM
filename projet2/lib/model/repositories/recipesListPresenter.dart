@@ -21,5 +21,9 @@ abstract class RecipesListPresenter extends ChangeNotifier {
   void shiftServing(Recipe recipe, int shift);
   void setServing(Recipe recipe, int quantity);
 
+  ///ajouter un ingredients
+  void addIngredient(Recipe recipe, Ingredients ingredient);
 
+  ///supprimer un ingredients
+  void removeIngredient(Recipe recipe, Ingredients ingredient);
 }

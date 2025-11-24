@@ -11,7 +11,7 @@ class RecipeDetails extends StatelessWidget {
   // TODO: Ajouter l'importation depuis la Galerie ! (urgent)
   // TODO: Faire la caméra ? (optionnel)
   // TODO: Améliorer le Style ?
-  // TODO: Ajouter des anilations ?
+  // TODO: Ajouter des animations ?
 
   @override
   Widget build(BuildContext context) {

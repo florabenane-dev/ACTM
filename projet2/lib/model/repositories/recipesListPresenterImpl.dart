@@ -65,4 +65,16 @@ class RecipesListPresenterImpl extends RecipesListPresenter {
     if (ingredient.quantity < 0) ingredient.quantity = 0;
     notifyListeners();
   }
+
+  @override
+  void addIngredient(Recipe recipe, Ingredients ingredient) {
+    recipe.ingredients.add(ingredient);
+    notifyListeners();
+  }
+
+  @override
+  void removeIngredient(Recipe recipe, Ingredients ingredient) {
+    recipe.ingredients.remove(ingredient);
+    notifyListeners();
+  }
 }
