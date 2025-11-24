@@ -10,7 +10,6 @@ import '../utils/utilsFunctions.dart';
 class RecipeEditDetails extends StatefulWidget {
 
   // TODO: Ajouter la checkbox et Implementer la logique de tri !
-  // TODO: Implémenter la logique CRUD pour les ingrédients = Ajout,edit,supp
 
   ///constructeur
   const RecipeEditDetails({super.key});
@@ -21,6 +20,7 @@ class RecipeEditDetails extends StatefulWidget {
 }
 
 class _RecipeEditDetailsState extends State<RecipeEditDetails> {
+  bool sortedByName = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,11 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
     /// s'abonner au ChangeNotifier
     final recipesPresenter = context.watch<RecipesListPresenter>();
 
-    bool sortedByName = false;
+    /// liste temporaire triée
+    final displayedIngredients = sortedByName
+      ? (List.from(recipe.ingredients)
+        ..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase())))
+        : recipe.ingredients;
 
     return Scaffold(
       appBar: AppBar(
@@ -159,11 +163,9 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
                 // case à cocher
                 Checkbox(value: sortedByName,
                   onChanged: (bool? value) {
-                    // TODO: Implementer le tri par nom
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("tri par nom à faire")),
-                    );
-                    sortedByName = value!;
+                    setState(() {
+                      sortedByName = value!;
+                    });
                   },
                 ),
                 const Expanded(child: Text(
@@ -176,7 +178,7 @@ class _RecipeEditDetailsState extends State<RecipeEditDetails> {
             // ingredients
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: recipe.ingredients.map((ingredient) {
+              children: displayedIngredients.map((ingredient) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Row(
