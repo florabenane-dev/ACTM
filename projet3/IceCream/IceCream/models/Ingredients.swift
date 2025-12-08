@@ -12,3 +12,9 @@
 
 import Foundation
 
+struct Ingredients {
+    var name: String
+    var quantity: Int
+    var unit: String
+    var price: Double
+}

@@ -13,3 +13,7 @@
 
 import Foundation
 
+struct Cup {
+    var name: String
+    var price: Double
+}
