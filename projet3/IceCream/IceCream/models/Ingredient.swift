@@ -1,11 +1,9 @@
 //
-//  Ingredients.swift
+//  Ingredient.swift
 //  IceCream
 //
-//  Created by benanflo on 08/12/2025.
+//  Created by benanflo on 10/12/2025.
 //
-
-
 
 import Foundation
 
@@ -24,7 +22,7 @@ enum IngredientType {
 
 /// Représente un ingrédient  dans l'inventaire.
 ///     * contient les données de l'ingrédient (nom, prix) et son état dans l'interface de stock
-struct Ingredients {
+struct Ingredient {
     
     // MARK: - Propriétés de l'inventaire
     

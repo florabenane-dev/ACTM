@@ -14,7 +14,6 @@
 		DD3C699A2EE6DF99000E06B2 /* IceCreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69992EE6DF99000E06B2 /* IceCreamTests.swift */; };
 		DD3C69A42EE6DF99000E06B2 /* IceCreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69A32EE6DF99000E06B2 /* IceCreamUITests.swift */; };
 		DD3C69A62EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69A52EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift */; };
-		DD3C69B92EE6E03A000E06B2 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */; };
 		DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69BC2EE6E080000E06B2 /* IceCreamRepository.swift */; };
 		DD3C69BF2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69BE2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift */; };
 		DD3C69C22EE6E0C3000E06B2 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69C12EE6E0C3000E06B2 /* Injector.swift */; };
@@ -24,6 +23,7 @@
 		DD3C69CB2EE6E438000E06B2 /* IceCreamBuilderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69CA2EE6E438000E06B2 /* IceCreamBuilderService.swift */; };
 		DD3C69CD2EE6E44A000E06B2 /* PricingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69CC2EE6E44A000E06B2 /* PricingService.swift */; };
 		DD3C69CF2EE6E478000E06B2 /* MailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69CE2EE6E478000E06B2 /* MailService.swift */; };
+		DD3C69D12EE9A1AA000E06B2 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69D02EE9A1AA000E06B2 /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		DD3C699F2EE6DF99000E06B2 /* IceCreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C69A32EE6DF99000E06B2 /* IceCreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamUITests.swift; sourceTree = "<group>"; };
 		DD3C69A52EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		DD3C69BC2EE6E080000E06B2 /* IceCreamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamRepository.swift; sourceTree = "<group>"; };
 		DD3C69BE2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamRepositoryDummy.swift; sourceTree = "<group>"; };
 		DD3C69C12EE6E0C3000E06B2 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		DD3C69CA2EE6E438000E06B2 /* IceCreamBuilderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamBuilderService.swift; sourceTree = "<group>"; };
 		DD3C69CC2EE6E44A000E06B2 /* PricingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingService.swift; sourceTree = "<group>"; };
 		DD3C69CE2EE6E478000E06B2 /* MailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailService.swift; sourceTree = "<group>"; };
+		DD3C69D02EE9A1AA000E06B2 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 		DD3C69B22EE6DFA5000E06B2 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */,
+				DD3C69D02EE9A1AA000E06B2 /* Ingredient.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3C69BF2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift in Sources */,
-				DD3C69B92EE6E03A000E06B2 /* Ingredients.swift in Sources */,
+				DD3C69D12EE9A1AA000E06B2 /* Ingredient.swift in Sources */,
 				DD3C69C92EE6E360000E06B2 /* AlertView.swift in Sources */,
 				DD3C69CF2EE6E478000E06B2 /* MailService.swift in Sources */,
 				DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */,
