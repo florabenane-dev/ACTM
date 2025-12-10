@@ -14,9 +14,7 @@
 		DD3C699A2EE6DF99000E06B2 /* IceCreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69992EE6DF99000E06B2 /* IceCreamTests.swift */; };
 		DD3C69A42EE6DF99000E06B2 /* IceCreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69A32EE6DF99000E06B2 /* IceCreamUITests.swift */; };
 		DD3C69A62EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69A52EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift */; };
-		DD3C69B72EE6E00D000E06B2 /* Flavor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69B62EE6E00D000E06B2 /* Flavor.swift */; };
 		DD3C69B92EE6E03A000E06B2 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */; };
-		DD3C69BB2EE6E065000E06B2 /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69BA2EE6E065000E06B2 /* Cup.swift */; };
 		DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69BC2EE6E080000E06B2 /* IceCreamRepository.swift */; };
 		DD3C69BF2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69BE2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift */; };
 		DD3C69C22EE6E0C3000E06B2 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69C12EE6E0C3000E06B2 /* Injector.swift */; };
@@ -56,9 +54,7 @@
 		DD3C699F2EE6DF99000E06B2 /* IceCreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C69A32EE6DF99000E06B2 /* IceCreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamUITests.swift; sourceTree = "<group>"; };
 		DD3C69A52EE6DF99000E06B2 /* IceCreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DD3C69B62EE6E00D000E06B2 /* Flavor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flavor.swift; sourceTree = "<group>"; };
 		DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
-		DD3C69BA2EE6E065000E06B2 /* Cup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
 		DD3C69BC2EE6E080000E06B2 /* IceCreamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamRepository.swift; sourceTree = "<group>"; };
 		DD3C69BE2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamRepositoryDummy.swift; sourceTree = "<group>"; };
 		DD3C69C12EE6E0C3000E06B2 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
@@ -159,9 +155,7 @@
 		DD3C69B22EE6DFA5000E06B2 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				DD3C69B62EE6E00D000E06B2 /* Flavor.swift */,
 				DD3C69B82EE6E03A000E06B2 /* Ingredients.swift */,
-				DD3C69BA2EE6E065000E06B2 /* Cup.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -335,12 +329,10 @@
 			files = (
 				DD3C69BF2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift in Sources */,
 				DD3C69B92EE6E03A000E06B2 /* Ingredients.swift in Sources */,
-				DD3C69BB2EE6E065000E06B2 /* Cup.swift in Sources */,
 				DD3C69C92EE6E360000E06B2 /* AlertView.swift in Sources */,
 				DD3C69CF2EE6E478000E06B2 /* MailService.swift in Sources */,
 				DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */,
 				DD3C69CD2EE6E44A000E06B2 /* PricingService.swift in Sources */,
-				DD3C69B72EE6E00D000E06B2 /* Flavor.swift in Sources */,
 				DD3C69C72EE6E294000E06B2 /* StockView.swift in Sources */,
 				DD3C698B2EE6DF98000E06B2 /* ContentView.swift in Sources */,
 				DD3C69CB2EE6E438000E06B2 /* IceCreamBuilderService.swift in Sources */,
