@@ -22,11 +22,11 @@ enum IngredientType {
 
 /// Représente un ingrédient  dans l'inventaire.
 ///     * contient les données de l'ingrédient (nom, prix) et son état dans l'interface de stock
-struct Ingredient {
+struct Ingredient: Identifiable {
     
     // MARK: - Propriétés de l'inventaire
     
-    // let id = UUID()
+    let id = UUID()
     
     /// Le nom
     let name: String
@@ -49,5 +49,5 @@ struct Ingredient {
     // MARK: - État de l'interface
     /// Indique si l'ingrédient est sélectionné dans la page "Check all items"
     ///     * La valeur par défaut est `false`
-    //var isSelectedForOrder: Bool = false
+    var isSelectedForOrder: Bool = false
 }

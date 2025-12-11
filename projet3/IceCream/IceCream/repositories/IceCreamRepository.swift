@@ -9,7 +9,7 @@ import Foundation
 
 /// Contient les spécifications d'API, expose une liste abstraite d'ingredients en lecture
 
-protocol IceCreamRepository {
+protocol IceCreamRepository: ObservableObject {
     /// Liste abstraite accessible en lecture et écriture
     var ingredients: [Ingredient] { get set }
     

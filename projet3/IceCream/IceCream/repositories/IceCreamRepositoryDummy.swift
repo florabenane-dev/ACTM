@@ -9,8 +9,8 @@ import Foundation
 
 /// Implementation concrète du repository IceCreamRepository
 class IceCreamRepositoryDummy: IceCreamRepository {
-    
-    var ingredients: [Ingredient] = [
+    /// @Published notifie les view quand la liste change
+    @Published var ingredients: [Ingredient] = [
         // Parfums
         Ingredient(name: "Chocolate", image: "chocolate", stockQuantity: 300, unit: "ml", type: .flavor, price: 0),
         Ingredient(name: "Vanilla", image: "vanilla", stockQuantity: 100, unit: "ml", type: .flavor, price: 0),
