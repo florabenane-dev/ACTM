@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD3C69892EE6DF98000E06B2 /* IceCreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69882EE6DF98000E06B2 /* IceCreamApp.swift */; };
-		DD3C698B2EE6DF98000E06B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C698A2EE6DF98000E06B2 /* ContentView.swift */; };
 		DD3C698D2EE6DF99000E06B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3C698C2EE6DF99000E06B2 /* Assets.xcassets */; };
 		DD3C69902EE6DF99000E06B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3C698F2EE6DF99000E06B2 /* Preview Assets.xcassets */; };
 		DD3C699A2EE6DF99000E06B2 /* IceCreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69992EE6DF99000E06B2 /* IceCreamTests.swift */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		DD3C69852EE6DF98000E06B2 /* IceCream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3C69882EE6DF98000E06B2 /* IceCreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamApp.swift; sourceTree = "<group>"; };
-		DD3C698A2EE6DF98000E06B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD3C698C2EE6DF99000E06B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3C698F2EE6DF99000E06B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD3C69952EE6DF99000E06B2 /* IceCreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +118,6 @@
 				DD3C69B32EE6DFB0000E06B2 /* repositories */,
 				DD3C69B22EE6DFA5000E06B2 /* models */,
 				DD3C69882EE6DF98000E06B2 /* IceCreamApp.swift */,
-				DD3C698A2EE6DF98000E06B2 /* ContentView.swift */,
 				DD3C698C2EE6DF99000E06B2 /* Assets.xcassets */,
 				DD3C698E2EE6DF99000E06B2 /* Preview Content */,
 			);
@@ -334,7 +331,6 @@
 				DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */,
 				DD3C69CD2EE6E44A000E06B2 /* PricingService.swift in Sources */,
 				DD3C69C72EE6E294000E06B2 /* StockView.swift in Sources */,
-				DD3C698B2EE6DF98000E06B2 /* ContentView.swift in Sources */,
 				DD3C69CB2EE6E438000E06B2 /* IceCreamBuilderService.swift in Sources */,
 				DD3C69C52EE6E18A000E06B2 /* MainView.swift in Sources */,
 				DD3C69892EE6DF98000E06B2 /* IceCreamApp.swift in Sources */,
