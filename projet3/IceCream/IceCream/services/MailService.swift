@@ -17,7 +17,7 @@ class MailService {
     
     /// Ouvre l'application Mail pré-remplie
        static func sendOrder(items: [String], signature: String) {
-           // 1. Préparation du contenu
+           // préparer le contenu
            let recipient = "order@icecream.com"
            let subject = "Order"
           
@@ -30,9 +30,8 @@ class MailService {
            \(signature)
            """
           
-           // 2. Création de l'URL mailto
-           // Attention : Les URL ne supportent pas les espaces ou les retours à la ligne bruts.
-           // Il faut les encoder (ex: espace devient %20)
+           // Créer l'URL mailto
+           // encoder les espace et les retour à la ligne pour l'url (espace=%20)
            if let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: "mailto:\(recipient)?subject=\(encodedSubject)&body=\(encodedBody)") {
