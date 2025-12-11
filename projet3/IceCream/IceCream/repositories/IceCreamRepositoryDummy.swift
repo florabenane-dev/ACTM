@@ -28,13 +28,13 @@ class IceCreamRepositoryDummy: IceCreamRepository {
     /// baisser le stock
     func decreaseStock(ingredientName: String, amount: Double) {
         //chercher l'index de l'element qui a ce nom
-        if let index = ingredients.firstIndex(where: { $0.name == ingredientName}) {
+        if let index = ingredients.firstIndex(where: { $0.name == ingredientName }) {
             ingredients[index].stockQuantity -= amount
         }
     }
     
     /// récuperer un ingredient par son nom
     func getIngredient(named name: String) -> Ingredient? {
-        <#code#>
+        return ingredients.first(where: { $0.name == name })
     }
 }
