@@ -35,7 +35,7 @@ struct Ingredient {
     let image: String?
     
     /// La quantité actuellement disponible en stock
-    let stockQuantity: Double
+    var stockQuantity: Double
     
     /// L'unité de mesure associée à la quantité
     let unit: String
@@ -49,5 +49,5 @@ struct Ingredient {
     // MARK: - État de l'interface
     /// Indique si l'ingrédient est sélectionné dans la page "Check all items"
     ///     * La valeur par défaut est `false`
-    var isSelectedForOrder: Bool = false
+    //var isSelectedForOrder: Bool = false
 }

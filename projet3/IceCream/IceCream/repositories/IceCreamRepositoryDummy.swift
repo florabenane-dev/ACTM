@@ -27,7 +27,10 @@ class IceCreamRepositoryDummy: IceCreamRepository {
     
     /// baisser le stock
     func decreaseStock(ingredientName: String, amount: Double) {
-        <#code#>
+        //chercher l'index de l'element qui a ce nom
+        if let index = ingredients.firstIndex(where: { $0.name == ingredientName}) {
+            ingredients[index].stockQuantity -= amount
+        }
     }
     
     /// récuperer un ingredient par son nom
