@@ -8,7 +8,7 @@
 /**
     Service qui gère tout ce qui concerne la glace, à savoir :
         * gérer le nombre de boules de glaces selectionnée (pas de plus de 5 au total)
-        * gérer le stock restant après la création d'une glace
+        * gérer le stock restant après la création d'un glace
  */
 
 import Foundation
