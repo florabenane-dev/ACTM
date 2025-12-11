@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+/// Responsable de l'injection du repository
+///     * Pour avoir une seule source de vérité accessible partout => Pattern Singleton
+class Injector {
+    static let iceCreamRepository : IceCreamRepository = IceCreamRepositoryDummy()
+}
