@@ -132,8 +132,24 @@ struct MainView: View {
                 }
             }
             
-        }
-        .navigationTitle("Ice cream")
+            // SECTION 4 : PRIX
+            Section {
+                HStack {
+                    Text("Price").bold()
+                    Spacer()
+                    Text(String(format: "€ %.2f", viewModel.totalPrice)).bold()
+                }
+                
+                Button(action: {
+                    viewModel.makeIceCream()
+                }) {
+                    Text("Make icecream").frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(!viewModel.isOrderValid)
+            }
+                    
+        } .navigationTitle("Ice cream")
     }
 }
 
