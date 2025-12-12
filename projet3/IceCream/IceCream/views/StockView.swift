@@ -22,8 +22,42 @@ struct StockView: View {
     var alertFlavor: Ingredient?
     var signature: String
     
+    @StateObject private var viewModel = StockViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // utilise la liste fournie par le ViewModel
+            ForEach(viewModel.ingredients) { item in
+                Button(action: {
+                    // logique de coche du ViewModel
+                    viewModel.toggleSelection(item: item, alertFlavor: alertFlavor)
+                }) {
+                    HStack {
+                        // Vérification de l'état via le ViewModel
+                        Image(systemName: viewModel.isSelected(item: item, alertFlavor: alertFlavor) ? "checkmark.square.fill" : "square")
+                            .foregroundColor(viewModel.isSelected(item: item, alertFlavor: alertFlavor) ? (item.name == alertFlavor?.name ? .gray : .purple) : .gray)
+                            .font(.title2)
+                        
+                        Text(item.name)
+                            .fontWeight(item.name == alertFlavor?.name ? .bold : .regular)
+                            .foregroundColor(.primary)
+                        
+                        Spacer()
+                        
+                        Text("\(Int(max(0, item.stockQuantity))) \(item.unit)")
+                            .foregroundColor(item.stockQuantity <= 0 ? .red : .primary)
+                    }
+                    .contentShape(Rectangle())
+                }
+                .disabled(item.name == alertFlavor?.name)
+                .buttonStyle(PlainButtonStyle())
+                .padding(.vertical, 4)
+                
+                Divider()
+            }
+            
+            
+        }
     }
 }
 
