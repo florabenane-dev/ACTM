@@ -105,7 +105,32 @@ struct MainView: View {
                 }
             }
             
-            
+            // SECTION 3 : EXTRAS
+            Section(header: Text("Extras").foregroundColor(.black).font(.body).textCase(nil)) {
+                ForEach(iceCreamRepository.ingredients.filter { $0.type == .topping }) { item in
+                    Button(action: {
+                        if let current = viewModel.selectedToppings[item.name] {
+                            viewModel.selectedToppings[item.name] = !current
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: (viewModel.selectedToppings[item.name] ?? false) ? "checkmark.square.fill" : "square")
+                                .foregroundColor((viewModel.selectedToppings[item.name] ?? false) ? .purple : .gray).font(.title2)
+                            Text(item.name).foregroundColor(.primary)
+                            
+                            if !viewModel.canSelect(item: item) {
+                                Text("(Out of stock)").font(.caption).foregroundColor(.red)
+                            }
+                            
+                            Spacer()
+                            Text(String(format: "€ %.2f", item.price)).foregroundColor(.primary)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .disabled(!viewModel.canSelect(item: item))
+                    .opacity(viewModel.canSelect(item: item) ? 1.0 : 0.5)
+                }
+            }
             
         }
         .navigationTitle("Ice cream")
