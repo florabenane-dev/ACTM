@@ -63,6 +63,33 @@ class OrderViewModel: ObservableObject {
         return item.stockQuantity >= InventoryService.getConsumption(for: item)
     }
     
+    /// Valide la commande et décrémente les stocks
+    func makeIceCream() {
+        // Décrémenter parfums
+        for (flavorName, count) in selectedFlavors {
+            if count > 0 {
+                let consumption = InventoryService.getConsumption(for: repository.getIngredient(named: flavorName)!)
+                repository.decreaseStock(ingredientName: flavorName, amount: Double(count) * consumption)
+            }
+        }
+        
+        // Décrémenter contenant toujours 1, pas besoin de inventoryservice
+        repository.decreaseStock(ingredientName: selectedContainer, amount: 1)
+        
+        // Décrémenter toppings
+        for toppingName in selectedToppings.filter({ $0.value }).map({ $0.key }) {
+            if let topping = repository.getIngredient(named: toppingName) {
+                let consumption = InventoryService.getConsumption(for: topping)
+                repository.decreaseStock(ingredientName: toppingName, amount: consumption)
+            }
+        }
+        
+        resetOrder()
+    }
     
+    private func resetOrder() {
+        selectedFlavors = ["Chocolate": 0, "Vanilla": 0, "Pistachio": 0]
+        selectedToppings = ["Whipped cream": false, "Hazelnuts": false]
+    }
 }
 
