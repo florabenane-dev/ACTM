@@ -21,8 +21,34 @@ import SwiftUI
 
 struct AlertView: View {
     let flavor: Ingredient
+    // viewmodel
+    @StateObject private var viewModel = AlertViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(spacing: 20) {
+                
+                // Bloc Image + Message "is empty"
+                HStack(spacing: 20) {
+                    if let img = flavor.image {
+                        Image(img)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                    }
+                    
+                    Text("\(flavor.name) flavour\nis empty")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 10)
+            }
+            
+            
+        }
+        .navigationTitle(flavor.name)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
