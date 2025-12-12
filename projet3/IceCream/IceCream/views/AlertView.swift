@@ -71,6 +71,21 @@ struct AlertView: View {
                 }
             }
             
+            // Bouton Check/Collapse
+            Button(action: {
+                withAnimation {
+                    viewModel.toggleStockVisibility()
+                }
+            }) {
+                Text(viewModel.showStock ? "Collapse other items" : "Check all items")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.purple)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding(.vertical, 10)
             
         }
         .navigationTitle(flavor.name)
