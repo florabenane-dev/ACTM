@@ -11,7 +11,7 @@ import Foundation
 
 protocol IceCreamRepository: ObservableObject {
     /// Liste abstraite accessible en lecture et écriture
-    var ingredients: [Ingredient] { get set }
+    var ingredients: [Ingredient] { get }
     
     /// Fonction pour baisser le stock
     func decreaseStock(ingredientName: String, amount: Double)
