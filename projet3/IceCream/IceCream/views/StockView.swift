@@ -56,7 +56,25 @@ struct StockView: View {
                 Divider()
             }
             
-            
+            Button(action: {
+                // l'envoi avec le ViewModel
+                viewModel.sendGroupOrder(signature: signature)
+            }) {
+                Text("Order")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.top, 20)
+            .disabled(viewModel.selectedItems.isEmpty)
+            .alert("Récapitulatif", isPresented: $viewModel.showMailAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(viewModel.mailContent)
+            }
+        }
+        .onAppear {
+            // Initialiser de la sélection au chargement
+            viewModel.initializeSelection(alertFlavor: alertFlavor)
         }
     }
 }
