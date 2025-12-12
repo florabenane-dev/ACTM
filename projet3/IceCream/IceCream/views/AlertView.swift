@@ -45,6 +45,32 @@ struct AlertView: View {
                 .padding(.top, 10)
             }
             
+            // Champ Signature et Bouton Order
+            VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Signature")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    
+                    // Liaison avec le ViewModel
+                    TextField("Signature", text: $viewModel.signature)
+                        .textFieldStyle(.roundedBorder)
+                }
+                
+                Button("Order") {
+                    // viewModel fait la logique
+                    viewModel.sendAlert(for: flavor.name)
+                }
+                .buttonStyle(.borderedProminent)
+                .frame(maxWidth: .infinity)
+                .disabled(viewModel.signature.isEmpty || viewModel.showStock)
+                .alert("Récapitulatif du mail envoyé", isPresented: $viewModel.showMailAlert) {
+                    Button("OK", role: .cancel) { }
+                } message: {
+                    Text(viewModel.mailContent)
+                }
+            }
+            
             
         }
         .navigationTitle(flavor.name)
