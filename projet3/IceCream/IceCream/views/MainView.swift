@@ -85,5 +85,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    NavigationStack {
+        MainView()
+    }
 }

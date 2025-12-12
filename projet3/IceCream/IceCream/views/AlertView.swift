@@ -27,5 +27,7 @@ struct AlertView: View {
 }
 
 #Preview {
-    AlertView()
+    NavigationStack {
+        AlertView(flavor: Ingredient(name: "Pistachio", image: "pistachio", stockQuantity: 0, unit: "ml", type: .flavor, price: 0))
+    }
 }
