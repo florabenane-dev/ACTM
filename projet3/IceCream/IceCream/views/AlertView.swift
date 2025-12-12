@@ -45,7 +45,7 @@ struct AlertView: View {
                 .padding(.top, 10)
             
             // Champ Signature et Bouton Order
-            VStack(alignment: .leading, spacing: 15) {
+            HStack(alignment: .bottom) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Signature")
                         .font(.caption)
@@ -61,7 +61,6 @@ struct AlertView: View {
                     viewModel.sendAlert(for: flavor.name)
                 }
                 .buttonStyle(.borderedProminent)
-                .frame(maxWidth: .infinity)
                 .disabled(viewModel.signature.isEmpty || viewModel.showStock)
                 .alert("Récapitulatif du mail envoyé", isPresented: $viewModel.showMailAlert) {
                     Button("OK", role: .cancel) { }
