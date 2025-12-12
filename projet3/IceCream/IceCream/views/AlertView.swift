@@ -43,7 +43,6 @@ struct AlertView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 10)
-            }
             
             // Champ Signature et Bouton Order
             VStack(alignment: .leading, spacing: 15) {
@@ -87,6 +86,15 @@ struct AlertView: View {
             }
             .padding(.vertical, 10)
             
+            // Affichage conditionnel de la StockView
+            if viewModel.showStock {
+                // On passe la signature du ViewModel actuel vers la vue suivante
+                StockView(alertFlavor: flavor, signature: viewModel.signature)
+                    .transition(.opacity)
+            }
+            Spacer()
+        }
+        .padding()
         }
         .navigationTitle(flavor.name)
         .navigationBarTitleDisplayMode(.large)

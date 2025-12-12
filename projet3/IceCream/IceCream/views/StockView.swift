@@ -16,11 +16,18 @@
 import SwiftUI
 
 struct StockView: View {
+    @ObservedObject var iceCreamRepository = Injector.iceCreamRepository
+    
+    // Le parfum qui a déclenché l'alerte
+    var alertFlavor: Ingredient?
+    var signature: String
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    StockView()
+    StockView(alertFlavor: Ingredient(name: "Pistachio", image: nil, stockQuantity: 0, unit: "ml", type: .flavor, price: 0), signature: "Preview Signature")
+            .padding()
 }
