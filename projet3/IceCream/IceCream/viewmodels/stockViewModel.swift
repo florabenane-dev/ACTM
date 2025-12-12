@@ -20,4 +20,16 @@ class StockViewModel: ObservableObject {
             selectedItems.insert(name)
         }
     }
+    
+    /// Gère le clic sur une ligne (Cocher/Décocher)
+    func toggleSelection(item: Ingredient, alertFlavor: Ingredient?) {
+        // Règle métier : On ne peut pas décocher le parfum qui a déclenché l'alerte
+        if item.name == alertFlavor?.name { return }
+        
+        if selectedItems.contains(item.name) {
+            selectedItems.remove(item.name)
+        } else {
+            selectedItems.insert(item.name)
+        }
+    }
 }
