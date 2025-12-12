@@ -38,5 +38,20 @@ class OrderViewModel: ObservableObject {
         }
         return PricingService.calculateTotalPrice(scoopCount: totalScoops, containerPrice: containerPrice, extrasPrices: toppingsPrices)
     }
+ 
+    // --- ACTIONS ET VÉRIFICATIONS ---
     
-   
+    /// Vérifie si on peut ajouter une boule d'un parfum donné (Stock suffisant ?)
+    func canAddScoop(for flavor: Ingredient) -> Bool {
+        // conso par boule
+        let consumption = InventoryService.getConsumption(for: flavor)
+        
+        let currentCount = selectedFlavors[flavor.name] ?? 0
+        // (Quantité actuelle + 1) * consommation > Stock ?
+        let needed = Double(currentCount + 1) * consumption
+        
+        return flavor.stockQuantity >= needed
+    }
+    
+}
+
