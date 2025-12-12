@@ -8,10 +8,18 @@
 import Foundation
 
 class StockViewModel: ObservableObject {
-    // ÉTAT 
+    // Le ViewModel
+    private let repository = Injector.iceCreamRepository
+    
+    // ÉTAT
     @Published var selectedItems: Set<String> = []
     @Published var showMailAlert: Bool = false
     @Published var mailContent: String = ""
+    
+    // exposer pour la vue
+    var ingredients: [Ingredient] {
+        return repository.ingredients
+    }
     
     //  LOGIQUE
     /// Initialise la sélection avec le parfum en alerte (s'il existe)
