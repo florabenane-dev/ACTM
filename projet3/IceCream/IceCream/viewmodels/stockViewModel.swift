@@ -32,4 +32,9 @@ class StockViewModel: ObservableObject {
             selectedItems.insert(item.name)
         }
     }
+    
+    /// Vérifie si un item est sélectionné
+    func isSelected(item: Ingredient, alertFlavor: Ingredient?) -> Bool {
+        return selectedItems.contains(item.name) || item.name == alertFlavor?.name
+    }
 }
