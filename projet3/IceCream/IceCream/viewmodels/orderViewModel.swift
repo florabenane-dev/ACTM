@@ -53,5 +53,16 @@ class OrderViewModel: ObservableObject {
         return flavor.stockQuantity >= needed
     }
     
+    /// Vérifie si on peut sélectionner un contenant ou un extra
+    func canSelect(item: Ingredient) -> Bool {
+        // Si c'est déjà coché, on peut cliquer pour décocher
+        if let isSelected = selectedToppings[item.name], isSelected == true { return true }
+        if item.type == .container && selectedContainer == item.name { return true }
+        
+        // Sinon, on vérifie le stock via le service
+        return item.stockQuantity >= InventoryService.getConsumption(for: item)
+    }
+    
+    
 }
 
