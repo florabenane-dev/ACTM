@@ -45,9 +45,4 @@ struct Ingredient: Identifiable {
     
     /// Le prix unitaire
     let price: Double
-    
-    // MARK: - État de l'interface
-    /// Indique si l'ingrédient est sélectionné dans la page "Check all items"
-    ///     * La valeur par défaut est `false`
-    var isSelectedForOrder: Bool = false
 }

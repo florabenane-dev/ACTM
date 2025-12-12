@@ -23,6 +23,9 @@
 		DD3C69CD2EE6E44A000E06B2 /* PricingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69CC2EE6E44A000E06B2 /* PricingService.swift */; };
 		DD3C69CF2EE6E478000E06B2 /* MailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69CE2EE6E478000E06B2 /* MailService.swift */; };
 		DD3C69D12EE9A1AA000E06B2 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69D02EE9A1AA000E06B2 /* Ingredient.swift */; };
+		DD3C69D72EEC3FF8000E06B2 /* mainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69D62EEC3FF8000E06B2 /* mainViewModel.swift */; };
+		DD3C69D92EEC4009000E06B2 /* stockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69D82EEC4009000E06B2 /* stockViewModel.swift */; };
+		DD3C69DB2EEC401A000E06B2 /* alertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C69DA2EEC401A000E06B2 /* alertViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		DD3C69CC2EE6E44A000E06B2 /* PricingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingService.swift; sourceTree = "<group>"; };
 		DD3C69CE2EE6E478000E06B2 /* MailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailService.swift; sourceTree = "<group>"; };
 		DD3C69D02EE9A1AA000E06B2 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		DD3C69D62EEC3FF8000E06B2 /* mainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewModel.swift; sourceTree = "<group>"; };
+		DD3C69D82EEC4009000E06B2 /* stockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockViewModel.swift; sourceTree = "<group>"; };
+		DD3C69DA2EEC401A000E06B2 /* alertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		DD3C69872EE6DF98000E06B2 /* IceCream */ = {
 			isa = PBXGroup;
 			children = (
+				DD3C69D52EEC3FD2000E06B2 /* viewmodels */,
 				DD3C69C02EE6E0A6000E06B2 /* Injector */,
 				DD3C69B52EE6DFC4000E06B2 /* views */,
 				DD3C69B42EE6DFBB000E06B2 /* services */,
@@ -192,6 +199,16 @@
 				DD3C69C12EE6E0C3000E06B2 /* Injector.swift */,
 			);
 			path = Injector;
+			sourceTree = "<group>";
+		};
+		DD3C69D52EEC3FD2000E06B2 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				DD3C69D62EEC3FF8000E06B2 /* mainViewModel.swift */,
+				DD3C69D82EEC4009000E06B2 /* stockViewModel.swift */,
+				DD3C69DA2EEC401A000E06B2 /* alertViewModel.swift */,
+			);
+			path = viewmodels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,14 +344,17 @@
 				DD3C69BF2EE6E098000E06B2 /* IceCreamRepositoryDummy.swift in Sources */,
 				DD3C69D12EE9A1AA000E06B2 /* Ingredient.swift in Sources */,
 				DD3C69C92EE6E360000E06B2 /* AlertView.swift in Sources */,
+				DD3C69D72EEC3FF8000E06B2 /* mainViewModel.swift in Sources */,
 				DD3C69CF2EE6E478000E06B2 /* MailService.swift in Sources */,
 				DD3C69BD2EE6E080000E06B2 /* IceCreamRepository.swift in Sources */,
 				DD3C69CD2EE6E44A000E06B2 /* PricingService.swift in Sources */,
 				DD3C69C72EE6E294000E06B2 /* StockView.swift in Sources */,
+				DD3C69D92EEC4009000E06B2 /* stockViewModel.swift in Sources */,
 				DD3C69CB2EE6E438000E06B2 /* IceCreamBuilderService.swift in Sources */,
 				DD3C69C52EE6E18A000E06B2 /* MainView.swift in Sources */,
 				DD3C69892EE6DF98000E06B2 /* IceCreamApp.swift in Sources */,
 				DD3C69C22EE6E0C3000E06B2 /* Injector.swift in Sources */,
+				DD3C69DB2EEC401A000E06B2 /* alertViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
