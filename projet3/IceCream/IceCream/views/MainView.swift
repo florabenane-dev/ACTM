@@ -79,6 +79,34 @@ struct MainView: View {
                     .padding(.vertical, 4)
                 }
             }
+            
+            // SECTION 2 : CONTENANTS
+            Section(header: Text("Cone or cup").foregroundColor(.black).font(.body).textCase(nil)) {
+                ForEach(iceCreamRepository.ingredients.filter { $0.type == .container }) { item in
+                    Button(action: { viewModel.selectedContainer = item.name }) {
+                        HStack {
+                            Image(systemName: viewModel.selectedContainer == item.name ? "largecircle.fill.circle" : "circle")
+                                .foregroundColor(viewModel.selectedContainer == item.name ? .purple : .gray).font(.title2)
+                            Text(item.name).foregroundColor(.primary)
+                            
+                            // On demande au ViewModel si c'est sélectionnable (Stock)
+                            if !viewModel.canSelect(item: item) {
+                                Text("(Out of stock)").font(.caption).foregroundColor(.red)
+                            }
+                            
+                            Spacer()
+                            if item.price == 0 { Text("free").foregroundColor(.primary) }
+                            else { Text("€ \(Int(item.price))").foregroundColor(.primary) }
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .disabled(!viewModel.canSelect(item: item))
+                    .opacity(viewModel.canSelect(item: item) ? 1.0 : 0.5)
+                }
+            }
+            
+            
+            
         }
         .navigationTitle("Ice cream")
     }
