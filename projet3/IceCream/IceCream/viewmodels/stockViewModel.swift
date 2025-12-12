@@ -37,4 +37,15 @@ class StockViewModel: ObservableObject {
     func isSelected(item: Ingredient, alertFlavor: Ingredient?) -> Bool {
         return selectedItems.contains(item.name) || item.name == alertFlavor?.name
     }
+    
+    /// Envoie la commande groupée
+   func sendGroupOrder(signature: String) {
+       let itemsToList = Array(selectedItems)
+       
+       // Appel au Service
+       mailContent = MailService.generateMailBody(items: itemsToList, signature: signature)
+       MailService.sendOrder(items: itemsToList, signature: signature)
+       
+       showMailAlert = true
+   }
 }
